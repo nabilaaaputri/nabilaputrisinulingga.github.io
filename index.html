@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nabilaa - CV Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffe6f0;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:  radial-gradient(circle at 20% 20%, #fcd5ce 5px, transparent 10px),
+                        radial-gradient(circle at 80% 30%, #cdb4db 5px, transparent 10px),
+                        radial-gradient(circle at 50% 80%, #b5ead7 5px, transparent 10px);
+      background-size: 200px 200px;
+      animation: moveBg 20s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveBg {
+      0% { background-position: 0 0, 100px 0, 50px 100px; }
+      100% { background-position: 100px 100px, 200px 100px, 150px 200px; }
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background-color: #ffcde1;
+      position: relative;
+    }
+    header img {
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      border: 4px solid #fff0f6;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #d63384;
+    }
+    header p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .social-icons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    .social-icons a {
+      color: #d63384;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #6a4c93;
+    }
+    .scroll-down {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #d63384;
+      animation: floatText 2s infinite ease-in-out;
+    }
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    nav {
+      background-color: #f9c6d0;
+      text-align: center;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #d63384;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #6a4c93;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 22px;
+      color: #d63384;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ffb3c1;
+      padding-bottom: 10px;
+    }
+    .card {
+      background-color: #fff0f6;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .progress {
+      background: #ffe6f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #f06595;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .services .card {
+      text-align: center;
+    }
+    .education {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      padding-left: 20px;
+      border-left: 3px solid #f9a3b0;
+    }
+    .education > div {
+      position: relative;
+      background: #fff0f6;
+      margin-bottom: 30px;
+      padding: 15px 20px 15px 40px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(246,119,140,0.2);
+    }
+    .education > div::before {
+      content: "\f02d";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      left: -11px;
+      top: 15px;
+      font-size: 22px;
+      color: #f06595;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      width: auto;
+      height: auto;
+      line-height: 1;
+    }
+    .education strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #d63384;
+      font-size: 20px;
+    }
+    .education div p, .education div br + * {
+      margin: 4px 0;
+      color: #555;
+      font-size: 15px;
+    }
+    .projects-list {
+      display: grid;
+      gap: 20px;
+    }
+    .project-card {
+      background-color: #fff0f6;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .project-card a {
+      color: #d63384;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f9c6d0;
+      color: #555;
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .contact-card {
+      background-color: #fff0f6;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      font-size: 16px;
+      color: #444;
+    }
+    .contact-card h3 {
+      color: #d63384;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .contact-item {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-item i {
+      color: #f06595;
+      font-size: 20px;
+      width: 28px;
+      text-align: center;
+    }
+    .contact-item a {
+      color: #6a4c93;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-item a:hover {
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#more">More</a>
+  </nav>
+
+  <header>
+    <img src="nanana.jpg" alt="Naput" />
+    <h1>Nabila Putri Sinulingga</h1>
+    <p>Information Systems Student | UI/UX & Web Developer</p>
+
+    <div class="social-icons" aria-label="Social Media Links">
+      <a href="https://github.com/nabilaaaputri" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/nabla.put?igsh=MWwwMXJrNHJya2F3dg==" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/6283188602221" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/nabila-putri-sinulingga-1bb6732b1/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+     <div class="scroll-down">
+      <a href="#about"><i class="fas fa-angle-down"></i></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Hi!─ I'm Nabila, an Information Systems student at Universitas Muhammadiyah Sumatera Utara with a passion for user interface (UI) design and web development. I enjoy creating digital experiences that are visually appealing, easy to use, and user-friendly. I'm always curious about the latest trends in tech and design, and I love learning new things to keep improving my skills. For me, good design is all about making technology feel simple, enjoyable, and meaningful.</p>
+    </div>
+    <div>
+      <h3>Skill</h3>
+      <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+      <p>Web Development : HTML, CSS</p>
+      <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+      <p>Programming Languages : Java & Python</p>
+      <div class="progress"><div class="progress-bar" style="width: 82%"></div></div>
+      <p>UI/UX Design : Wireframing & Prototyping</p>
+      <div class="progress"><div class="progress-bar" style="width: 93%"></div></div>
+      <p>Tools & Software : Canva, Blender, Figma</p>
+      <div class="progress"><div class="progress-bar" style="width: 86%"></div></div>
+      <p>Data & Analytics : Microsoft Excel, MySQL</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services">
+      <div class="card">
+        <i class="fas fa-pencil-ruler fa-2x"></i>
+        <h3>UI/UX Design</h3>
+        <p>Mendesain tampilan aplikasi atau website yang menarik dan mudah digunakan.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-code fa-2x"></i>
+        <h3>Web Development</h3>
+        <p>Membuat website responsive dan interaktif sesuai kebutuhan klien.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-camera fa-2x"></i>
+        <h3>Graphic Design</h3>
+        <p>Membuat poster, konten media sosial, dan desain visual kreatif untuk mendukung promosi dan branding.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education">
+      <div>
+        <strong>S1 ─ Sistem Informasi</strong><br />
+        Universitas Muhammadiyah Sumatera Utara, 2023 - sekarang
+      </div>
+      <div>
+        <strong>SMA ─ Brigjend Katamso II Medan</strong><br />
+        Lulus tahun 2023
+      </div>
+      <div>
+        <strong>SMP ─ Negeri 20 Medan</strong><br />
+        Lulus tahun 2020
+      </div>
+      <div>
+        <strong>SD ─ Wahidin Sudiro Husodo</strong><br />
+        Lulus tahun 2017
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="projects-list">
+      <div class="project-card">
+        <h3>Member — Google Developer Student Clubs UMSU</h3>
+        <p>Menjadi anggota aktif dari komunitas Google Developer Student Clubs (GDSC) di Universitas Muhammadiyah Sumatera Utara. <a href="https://drive.google.com/file/d/1_-xabtVt47Si_582dKCmh3H_V-zKaaNw/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Member — Information Systems Student Association</h3>
+        <p> Sebagai anggota aktif Divisi Riset dan Teknologi di Himpunan Mahasiswa Sistem Informasi (HIMASI) Universitas Muhammadiyah Sumatera Utara. <a href="https://www.instagram.com/p/DHTMx5vJJlS/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Workshop: Front-End Development & Atomic Design</h3>
+        <p>Mempelajari konsep Atomic Design untuk pengembangan antarmuka pengguna yang terstruktur dan konsisten. <a href="https://drive.google.com/file/d/1AdzwNuydQX_vVe2Ze5KD2g1BCiuLn2XQ/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Seminar: E-Commerce Web Development</h3>
+        <p>Memahami dasar pengembangan web untuk e-commerce, termasuk konsep desain, integrasi sistem pembayaran, dan strategi pemasaran digital. <a href="https://drive.google.com/file/d/1XQ6BXfGCbPLy-OMcgVgOlNJyQDRsgEV-/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>UI/UX Webinar Participant</h3>
+        <p>Mengikuti webinar yang membahas dasar-dasar desain antarmuka pengguna (UI) dan pengalaman pengguna (UX), serta tren terbaru dalam dunia desain digital. <a href="https://drive.google.com/file/d/1NBbXkoX1ElKty1I6g6oYwqaBdGSoi8SM/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Collaborative Research on Academic Chatbot Seminar</h3>
+        <p>Mempelajari integrasi chatbot dalam riset dan pembelajaran akademik. <a href="https://drive.google.com/file/d/181dU6utnzzBGnkoOy_WCzB57C2SxI-ps/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Webinar: Getting Started with Bootstrap</h3>
+        <p>Mengikuti webinar pengenalan framework Bootstrap untuk membangun antarmuka web yang responsif dan efisien. <a href="https://drive.google.com/file/d/1Kr5gNbQtAAOxOapN6-t2ikTa-tcFM0VM/view?usp=sharing" target="_blank" rel="noopener">Lihat</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-list">
+      <div class="project-card">
+        <h3>Website Portfolio</h3>
+        <p>Website pribadi untuk memamerkan karya desain dan pengembangan web saya.</p>
+        <a href="https://nabilaaaputri.github.io/nabilaputris.github.io/" target="_blank" rel="noopener">Lihat sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>Menu Cafe Digital</h3>
+        <p>Membuat desain menu digital berbasis web yang sesuai dengan identitas visual cafe, fokus pada tampilan yang menarik dan mudah dibaca.</p>
+        <a href=" https://nabilaaaputri.github.io/MenuCafe.github.io/" target="_blank" rel="noopener">Lihat sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>Desain Halaman Login</h3>
+        <p>Mendesain tampilan website halaman login yang simpel dan user-friendly untuk kebutuhan aplikasi/situs.</p>
+        <a href=" https://nabilaaaputri.github.io/login.github.io/" target="_blank" rel="noopener">Lihat sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>Mobile Credit Top-Up System</h3>
+        <p>Sebuah sistem isi pulsa sederhana yang dibuat dengan Python, dirancang untuk mensimulasikan proses pembelian pulsa prabayar.</p>
+        <a href="https://www.kaggle.com/code/nabilaputris/program-isi-pulsa" target="_blank" rel="noopener">Coba sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>Number Guessing Game</h3>
+        <p>Sebuah game sederhana berbasis Java di terminal (command line), di mana pemain menebak angka acak yang dihasilkan komputer dalam jumlah percobaan tertentu.</p>
+        <a href="https://onlinegdb.com/BaRBtqoqU" target="_blank" rel="noopener">Coba sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>Zodiac Sign Program</h3>
+        <p>Sebuah program Python yang meminta nama dan tanggal lahir pengguna, kemudian menentukan zodiak mereka beserta karakteristiknya.</p>
+        <a href="https://www.kaggle.com/code/nabilaputris/program-zodiak/edit/run/158377968" target="_blank" rel="noopener">Coba Sekarang</a>
+      </div>
+      <div class="project-card">
+        <h3>3D Design Projects</h3>
+        <p>Mendesain objek 3D yang menarik seperti mobil, bangunan, dan struktur lainnya menggunakan Blender, dengan perhatian pada detail visual dan proporsi yang realistis.</p>
+        <a href="https://drive.google.com/drive/folders/1NAOLMc7zl-dkBb8E3s9s5pCBOe4BnbSQ?usp=sharing" target="_blank" rel="noopener">Lihat Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="portofolio">
+    <h2>Recent Works</h2>
+    <div class="card">
+      <p><a href=" https://nabilaaaputri.github.io/NabilaPutri.github.io/" target="_blank" rel="noopener">Web CV Project</a></p>
+      <p><a href=" https://nabilaaaputri.github.io/MenuCafe.github.io/" target="_blank" rel="noopener">Menu Cafe Digital</a></p>
+      <p><a href="https://nabilaaaputri.github.io/login.github.io/" target="_blank" rel="noopener">Desain Halaman Login</a></p>
+      <p><a href="https://www.kaggle.com/code/nabilaputris/program-isi-pulsa" target="_blank" rel="noopener">Mobile Credit Top-Up System</a></p>
+      <p><a href="https://onlinegdb.com/BaRBtqoqU" target="_blank" rel="noopener">Number Guessing Game</a></p>
+      <p><a href="https://www.kaggle.com/code/nabilaputris/program-zodiak/edit/run/158377968" target="_blank" rel="noopener">Zodiac Sign Program</a></p>
+      <p><a href="https://drive.google.com/drive/folders/1NAOLMc7zl-dkBb8E3s9s5pCBOe4BnbSQ?usp=sharing" target="_blank" rel="noopener">3D Design Projects</a></p>
+    </div>
+  </section>
+
+  <section id="more">
+  <h2>More Information</h2>
+  <div class="contact-info">
+    <div class="contact-card">
+      <h3>Contact Person</h3>
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+6283188602221">+62 831-8860-2221</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/6283188602221" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-instagram"></i>
+        <a href="https://www.instagram.com/nabla.put" target="_blank" rel="noopener">@nabla.put</a>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:nabilaputr017@gmail.com">nabilaputr017@gmail.com</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Address</h3>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://maps.app.goo.gl/ZMWAwbPQpdqj4m659" target="_blank" rel="noopener">
+          Pringgan Street, Medan, North Sumatra
+        </a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Place and date of birth</h3>
+      <div class="contact-item">
+        <i class="fas fa-birthday-cake"></i>
+        <span>Medan, <p>7th of January, 2006</p></span>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer>
+    &copy; 2025 Nabila Putri Sinulingga. All rights reserved.
+  </footer>
+
+</body>
+</html>
